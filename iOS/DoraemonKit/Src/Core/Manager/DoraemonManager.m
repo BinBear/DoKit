@@ -192,7 +192,7 @@ typedef void (^DoraemonPerformanceBlock)(NSDictionary *);
     }
     
     //统计开源项目使用量 不用于任何恶意行为
-    [[DoraemonStatisticsUtil shareInstance] upLoadUserInfo];
+//     [[DoraemonStatisticsUtil shareInstance] upLoadUserInfo];
     
     //拉取最新的mock数据
     [[DoraemonMockManager sharedInstance] queryMockData:^(int flag) {
