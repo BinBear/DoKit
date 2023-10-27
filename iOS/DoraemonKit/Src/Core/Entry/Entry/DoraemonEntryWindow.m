@@ -21,6 +21,7 @@
 @property (nonatomic, assign) CGFloat kEntryViewSize;
 @property (nonatomic) CGPoint startingPosition;
 @property (nonatomic, strong) UILabel *entryBtnBlingTextLabel;
+@property (nonatomic, strong) UIImage *entryBtnImage;
 
 @end
 
@@ -52,11 +53,14 @@
 #if defined(__IPHONE_13_0) && (__IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_13_0)
     if (@available(iOS 13.0, *)) {
         if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
+            UIImage *image;
             if (UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-                [self.entryBtn setImage:[UIImage doraemon_xcassetImageNamed:@"doraemon_logo_dark"] forState:UIControlStateNormal];
+                image = [UIImage doraemon_xcassetImageNamed:@"doraemon_logo_dark"];
             } else {
-                [self.entryBtn setImage:[UIImage doraemon_xcassetImageNamed:@"doraemon_logo"] forState:UIControlStateNormal];
+                image = [UIImage doraemon_xcassetImageNamed:@"doraemon_logo"];
             }
+            UIImage *btnImage = self.entryBtnImage ? : image;
+            [self.entryBtn setImage:btnImage forState:UIControlStateNormal];
         }
     }
 #endif
@@ -64,7 +68,7 @@
 
 - (instancetype)initWithStartPoint:(CGPoint)startingPosition{
     self.startingPosition = startingPosition;
-    _kEntryViewSize = 58;
+    _kEntryViewSize = 40;
     CGFloat x = self.startingPosition.x;
     CGFloat y = self.startingPosition.y;
     CGPoint defaultPosition = DoraemonStartingPosition;
@@ -246,6 +250,11 @@
     self.entryBtnBlingTextLabel.backgroundColor = backColor;
     self.entryBtnBlingTextLabel.text = [text substringToIndex:1];
     
+}
+
+- (void)configEntryBtnImage:(UIImage *)imgae {
+    self.entryBtnImage = imgae;
+    [self.entryBtn setImage:imgae forState:UIControlStateNormal];
 }
 
 - (void)destoryBlingText {

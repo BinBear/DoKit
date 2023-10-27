@@ -19,4 +19,5 @@
 - (void)show;
 
 - (void)configEntryBtnBlingWithText:(NSString *)text backColor:(UIColor *)backColor;
+- (void)configEntryBtnImage:(UIImage *)imgae;
 @end

@@ -177,5 +177,6 @@ typedef NS_ENUM(NSUInteger, DoraemonManagerPluginType) {
 
 
 - (void)configEntryBtnBlingWithText:(nullable NSString *)text backColor:(nullable UIColor *)backColor;
+- (void)configEntryBtnImage:(nullable UIImage *)image;
 @end
 NS_ASSUME_NONNULL_END

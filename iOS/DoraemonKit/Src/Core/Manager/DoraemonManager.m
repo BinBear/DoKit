@@ -785,4 +785,8 @@ typedef void (^DoraemonPerformanceBlock)(NSDictionary *);
     [self.entryWindow configEntryBtnBlingWithText:text backColor:backColor];
 }
 
+- (void)configEntryBtnImage:(nullable UIImage *)image {
+    [self.entryWindow configEntryBtnImage:image];
+}
+
 @end
