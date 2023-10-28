@@ -68,7 +68,7 @@
 
 - (instancetype)initWithStartPoint:(CGPoint)startingPosition{
     self.startingPosition = startingPosition;
-    _kEntryViewSize = 40;
+    _kEntryViewSize = 59;
     CGFloat x = self.startingPosition.x;
     CGFloat y = self.startingPosition.y;
     CGPoint defaultPosition = DoraemonStartingPosition;
