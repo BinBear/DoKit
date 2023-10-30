@@ -218,9 +218,11 @@ typedef void (^DoraemonPerformanceBlock)(NSDictionary *);
  */
 - (void)initData{
     #pragma mark - 平台工具
-    [self addPluginWithPluginType:DoraemonManagerPluginType_DoraemonMockPlugin];
-    [self addPluginWithPluginType:DoraemonManagerPluginType_DoraemonHealthPlugin];
-    [self addPluginWithPluginType:DoraemonManagerPluginType_DoraemonFileSyncPlugin];
+    if (self.pId.length > 0) {
+        [self addPluginWithPluginType:DoraemonManagerPluginType_DoraemonMockPlugin];
+        [self addPluginWithPluginType:DoraemonManagerPluginType_DoraemonHealthPlugin];
+        [self addPluginWithPluginType:DoraemonManagerPluginType_DoraemonFileSyncPlugin];
+    }
     
     #pragma mark - 常用工具
     [self addPluginWithPluginType:DoraemonManagerPluginType_DoraemonAppSettingPlugin];
